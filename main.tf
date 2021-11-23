@@ -137,7 +137,7 @@ module "clients" {
   storage_account_name = "${var.storage_account_name}"
 
   location = "${var.location}"
-  #custom_data = "${data.template_file.custom_data_client.rendered}"
+  custom_data = ("custom_data_client")
   instance_size = "${var.instance_size}"
   image_id = "${var.image_uri}"
   subnet_id = "${azurerm_subnet.nomad.id}"
