@@ -27,7 +27,7 @@ resource "azurerm_virtual_network" "nomad" {
   name = "nomadvn"
   address_space = ["${var.address_space}"]
   location = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "kkkkk"
 }
 
 resource "azurerm_subnet" "nomad" {
