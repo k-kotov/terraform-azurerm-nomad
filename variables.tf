@@ -47,7 +47,7 @@ variable "location" {
 
 variable "allowed_ssh_cidr_blocks" {
   description = "A list of CIDR-formatted IP address ranges from which the Azure Instances will allow SSH connections"
-  type        = "list"
+  
   default     = []
 }
 
