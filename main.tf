@@ -70,9 +70,19 @@ module "servers" {
   allowed_inbound_cidr_blocks = []
 }
 
+  resource "azurerm_lb" "example" {
+  name                = "TestLoadBalancer"
+  location            = "West US"
+  resource_group_name = azurerm_resource_group.example.name
+
+  frontend_ip_configuration {
+    name                 = "PublicIPAddress"
+    public_ip_address_id = azurerm_public_ip.example.id
+  }
+}
 resource "azurerm_lb_probe" "nomad_probe" {
   resource_group_name = "${var.resource_group_name}"
-  loadbalancer_id = "4646"
+  loadbalancer_id = azurerm_lb.example.id
   name                = "nomad-running-probe"
   port                = "4646"
 }
