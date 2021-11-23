@@ -153,8 +153,8 @@ resource "azurerm_virtual_machine_scale_set" "nomad_with_load_balancer" {
     ip_configuration {
       name = "nomadIPConfiguration"
       subnet_id = "${var.subnet_id}"
-      load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.nomad_bepool.id}"]
-      load_balancer_inbound_nat_rules_ids = ["${element(azurerm_lb_nat_pool.nomad_lbnatpool_ssh.*.id, count.index)}"]
+      #load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.nomad_bepool.id}"]
+      #load_balancer_inbound_nat_rules_ids = ["${element(azurerm_lb_nat_pool.nomad_lbnatpool_ssh.*.id, count.index)}"]
     }
   }
 
