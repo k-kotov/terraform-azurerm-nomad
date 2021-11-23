@@ -28,7 +28,7 @@ resource "azurerm_lb" "nomad_access" {
     public_ip_address_id = "${azurerm_public_ip.nomad_access.id}"
   }
 }
-*/
+
 resource "azurerm_lb_nat_pool" "nomad_lbnatpool_ssh" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   resource_group_name = "${var.resource_group_name}"
@@ -47,7 +47,7 @@ resource "azurerm_lb_backend_address_pool" "nomad_bepool" {
   loadbalancer_id = "${azurerm_lb.nomad_access.id}"
   name = "BackEndAddressPool"
 }
-
+*/
 #---------------------------------------------------------------------------------------------------------------------
 # CREATE A VIRTUAL MACHINE SCALE SET TO RUN NOMAD (WITHOUT LOAD BALANCER)
 # ---------------------------------------------------------------------------------------------------------------------
@@ -82,7 +82,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
       key_data = "${var.key_data}"
     }
   }
-
+/*
   network_profile {
     name = "nomadNetworkProfile"
     primary = true
@@ -92,7 +92,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
     #  subnet_id = "${var.subnet_id}"
     #}
   }
-
+*/
   storage_profile_image_reference {
     id = "${var.image_id}"
   }
