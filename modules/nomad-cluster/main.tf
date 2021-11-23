@@ -87,10 +87,10 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
     name = "nomadNetworkProfile"
     primary = true
 
-   # ip_configuration {
-    #  name = "nomadIPConfiguration"
-    #  subnet_id = "${var.subnet_id}"
-    #}
+    ip_configuration {
+      name = "nomadIPConfiguration"
+      subnet_id = "/subscriptions/6276d188-6b35-4b44-be1d-12633d236ed8/resourceGroups/revizor/providers/Microsoft.Network/virtualNetworks/revizor/subnets/revizor"
+    }
   }
 
   storage_profile_image_reference {
