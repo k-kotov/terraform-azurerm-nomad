@@ -151,6 +151,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad_with_load_balancer" {
     primary = true
 
     ip_configuration {
+      primary = true
       name = "nomadIPConfiguration"
       subnet_id = "${var.subnet_id}"
       #load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.nomad_bepool.id}"]
@@ -170,7 +171,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad_with_load_balancer" {
     managed_disk_type = "Standard_LRS"
   }
 
-  tags {
-    scaleSetName = "${var.cluster_name}"
-  }
+  #tags {
+   # scaleSetName = "${var.cluster_name}"
+  #}
 }
