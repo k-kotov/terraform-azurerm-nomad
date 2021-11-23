@@ -75,7 +75,7 @@ variable "cluster_size" {
 
 variable "subnet_ids" {
   description = "The subnet IDs into which the Azure Instances should be deployed. We recommend one subnet ID per node in the cluster_size variable. At least one of var.subnet_ids or var.availability_zones must be non-empty."
-  type        = "list"
+  
   default     = []
 }
 
