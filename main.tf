@@ -108,13 +108,13 @@ resource "azurerm_lb_rule" "nomad_api_port" {
 # THE CUSTOM DATA SCRIPT THAT WILL RUN ON EACH SERVER NODE WHEN IT'S BOOTING
 # This script will configure and start Consul and Nomad
 # ---------------------------------------------------------------------------------------------------------------------
-
+/*
 data "template_file" "custom_data_server" {
   template = "${file("${path.module}/custom-data-server.sh")}"
 
 
 }
-
+*/
 # ---------------------------------------------------------------------------------------------------------------------
 # DEPLOY THE CLIENT NODES
 # ---------------------------------------------------------------------------------------------------------------------
@@ -155,9 +155,9 @@ module "clients" {
 # THE CUSTOM DATA SCRIPT THAT WILL RUN ON EACH CLIENT NODE WHEN IT'S BOOTING
 # This script will configure and start Consul and Nomad
 # ---------------------------------------------------------------------------------------------------------------------
-
+/*
 data "template_file" "custom_data_client" {
   template = "${file("${path.module}/custom-data-client.sh")}"
-
+*/
 
 }
