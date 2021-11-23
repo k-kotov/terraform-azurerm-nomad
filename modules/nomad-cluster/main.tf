@@ -16,7 +16,7 @@ terraform {
   domain_name_label = "${var.cluster_name}"
   allocation_method = "standart"
 }
-*/
+
 resource "azurerm_lb" "nomad_access" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   name = "${var.cluster_name}_access"
@@ -28,7 +28,7 @@ resource "azurerm_lb" "nomad_access" {
     public_ip_address_id = "${azurerm_public_ip.nomad_access.id}"
   }
 }
-
+*/
 resource "azurerm_lb_nat_pool" "nomad_lbnatpool_ssh" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   resource_group_name = "${var.resource_group_name}"
@@ -87,10 +87,10 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
     name = "nomadNetworkProfile"
     primary = true
 
-    ip_configuration {
-      name = "nomadIPConfiguration"
-      subnet_id = "${var.subnet_id}"
-    }
+   # ip_configuration {
+    #  name = "nomadIPConfiguration"
+    #  subnet_id = "${var.subnet_id}"
+    #}
   }
 
   storage_profile_image_reference {
@@ -105,9 +105,9 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
     managed_disk_type = "Standard_LRS"
   }
 
-  tags {
-    scaleSetName = "${var.cluster_name}"
-  }
+ # tags {
+  #  scaleSetName = "${var.cluster_name}"
+ # }
 }
 
 #---------------------------------------------------------------------------------------------------------------------
