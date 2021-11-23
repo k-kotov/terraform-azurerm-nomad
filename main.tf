@@ -74,6 +74,7 @@ module "servers" {
   name     = "LoadBalancerRG"
   location = "West Europe"
 }
+  /*
   resource "azurerm_lb" "example" {
   name                = "TestLoadBalancer"
   location            = "West US"
@@ -102,7 +103,7 @@ resource "azurerm_lb_rule" "nomad_api_port" {
   backend_address_pool_id = "azurerm_lb.example.id"
   probe_id = "${azurerm_lb_probe.nomad_probe.id}"
 }
-
+*/
 # ---------------------------------------------------------------------------------------------------------------------
 # THE CUSTOM DATA SCRIPT THAT WILL RUN ON EACH SERVER NODE WHEN IT'S BOOTING
 # This script will configure and start Consul and Nomad
