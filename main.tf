@@ -13,6 +13,7 @@ provider "azurerm" {
   client_id = "${var.client_id}"
   client_secret = "${var.secret_access_key}"
   tenant_id = "${var.tenant_id}"
+  features {}
 }
 
 terraform {
@@ -96,14 +97,7 @@ resource "azurerm_lb_rule" "nomad_api_port" {
 data "template_file" "custom_data_server" {
   template = "${file("${path.module}/custom-data-server.sh")}"
 
-  vars {
-    num_servers       = "${var.num_servers}"
-    scale_set_name = "${var.cluster_name}-server"
-    subscription_id = "${var.subscription_id}"
-    tenant_id = "${var.tenant_id}"
-    client_id = "${var.client_id}"
-    secret_access_key = "${var.secret_access_key}"
-  }
+
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
