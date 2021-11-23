@@ -5,15 +5,18 @@ terraform {
 #---------------------------------------------------------------------------------------------------------------------
 # CREATE A LOAD BALANCER FOR TEST ACCESS (SHOULD BE DISABLED FOR PROD)
 #---------------------------------------------------------------------------------------------------------------------
-resource "azurerm_public_ip" "nomad_access" {
+
+/*
+  resource "azurerm_public_ip" "nomad_access" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   name = "${var.cluster_name}_access"
   location = "West US"
   resource_group_name = "${var.resource_group_name}"
   public_ip_address_allocation = "static"
   domain_name_label = "${var.cluster_name}"
+  allocation_method = "standart"
 }
-
+*/
 resource "azurerm_lb" "nomad_access" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   name = "${var.cluster_name}_access"
