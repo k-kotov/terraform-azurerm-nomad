@@ -42,7 +42,7 @@ resource "azurerm_subnet" "nomad" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "servers" {
-  source = "git::git@github.com:hashicorp/terraform-azurerm-consul//modules/consul-cluster?ref=v0.0.3"
+  source = "./modules/consul-cluster"
 
   cluster_name = "${var.cluster_name}-server"
   cluster_size = "${var.num_servers}"
