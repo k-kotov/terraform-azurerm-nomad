@@ -72,7 +72,7 @@ module "servers" {
 
 resource "azurerm_lb_probe" "nomad_probe" {
   resource_group_name = "${var.resource_group_name}"
-  loadbalancer_id = "${element(module.servers.load_balancer_id, 0)}"
+  #loadbalancer_id = "${element(module.servers.load_balancer_id, 0)}"
   name                = "nomad-running-probe"
   port                = "4646"
 }
@@ -144,11 +144,5 @@ module "clients" {
 data "template_file" "custom_data_client" {
   template = "${file("${path.module}/custom-data-client.sh")}"
 
-  vars {
-    scale_set_name = "${var.cluster_name}-clients"
-    subscription_id = "${var.subscription_id}"
-    tenant_id = "${var.tenant_id}"
-    client_id = "${var.client_id}"
-    secret_access_key = "${var.secret_access_key}"
-  }
+
 }
