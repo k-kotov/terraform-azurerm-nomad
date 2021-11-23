@@ -94,12 +94,12 @@ resource "azurerm_lb_probe" "nomad_probe" {
 resource "azurerm_lb_rule" "nomad_api_port" {
   resource_group_name = "kostya"
   name = "nomad-api"
-  loadbalancer_id = "${element(module.servers.load_balancer_id, 0)}"
+  loadbalancer_id = "azurerm_lb.example.id"
   protocol = "Tcp"
   frontend_port = "4646"
   backend_port = "4646"
   frontend_ip_configuration_name = "PublicIPAddress"
-  backend_address_pool_id = "${element(module.servers.backend_pool_id, 0)}"
+  backend_address_pool_id = "azurerm_lb.example.id"
   probe_id = "${azurerm_lb_probe.nomad_probe.id}"
 }
 
