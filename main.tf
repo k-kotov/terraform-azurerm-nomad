@@ -42,7 +42,7 @@ resource "azurerm_subnet" "nomad" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "servers" {
-  source = "./modules/consul-cluster"
+  source = "./modules/nomand-cluster"
 
   cluster_name = "${var.cluster_name}-server"
   cluster_size = "${var.num_servers}"
