@@ -82,7 +82,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
       key_data = "${var.key_data}"
     }
   }
-/*
+
   network_profile {
     name = "nomadNetworkProfile"
     primary = true
@@ -92,7 +92,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
     #  subnet_id = "${var.subnet_id}"
     #}
   }
-*/
+
   storage_profile_image_reference {
     id = "${var.image_id}"
   }
