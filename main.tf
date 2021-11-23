@@ -158,6 +158,5 @@ module "clients" {
 /*
 data "template_file" "custom_data_client" {
   template = "${file("${path.module}/custom-data-client.sh")}"
-*/
-
 }
+*/
