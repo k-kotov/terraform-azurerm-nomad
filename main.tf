@@ -72,7 +72,7 @@ module "servers" {
 
 resource "azurerm_lb_probe" "nomad_probe" {
   resource_group_name = "${var.resource_group_name}"
-  #loadbalancer_id = "${element(module.servers.load_balancer_id, 0)}"
+  loadbalancer_id = "4646"
   name                = "nomad-running-probe"
   port                = "4646"
 }
