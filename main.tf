@@ -32,7 +32,7 @@ resource "azurerm_virtual_network" "nomad" {
 
 resource "azurerm_subnet" "nomad" {
   name = "nomadsubnet"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "kostya"
   virtual_network_name = "${azurerm_virtual_network.nomad.name}"
   address_prefix = "${var.subnet_address}"
 }
