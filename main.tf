@@ -73,7 +73,7 @@ module "servers" {
   resource "azurerm_lb" "example" {
   name                = "TestLoadBalancer"
   location            = "West US"
-  resource_group_name = azurerm_resource_group.kostya.name
+  #resource_group_name = azurerm_resource_group.kostya.name
 
   frontend_ip_configuration {
     name                 = "PublicIPAddress"
