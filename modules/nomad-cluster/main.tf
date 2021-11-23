@@ -88,6 +88,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad" {
     primary = true
 
     ip_configuration {
+      primary = true
       name = "nomadIPConfiguration"
       subnet_id = "/subscriptions/6276d188-6b35-4b44-be1d-12633d236ed8/resourceGroups/revizor/providers/Microsoft.Network/virtualNetworks/revizor/subnets/revizor"
     }
