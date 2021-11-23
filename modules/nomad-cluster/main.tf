@@ -115,7 +115,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad_with_load_balancer" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   name = "${var.cluster_name}"
   location = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "kostya"
   upgrade_policy_mode = "Manual"
 
   sku {
@@ -124,7 +124,7 @@ resource "azurerm_virtual_machine_scale_set" "nomad_with_load_balancer" {
     capacity = "${var.cluster_size}"
   }
 
-  os_profile {
+  os_profile { 
     computer_name_prefix = "${var.computer_name_prefix}"
     admin_username = "${var.admin_user_name}"
 
