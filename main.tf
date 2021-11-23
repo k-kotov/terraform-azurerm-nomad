@@ -53,7 +53,7 @@ module "servers" {
   # deployment, we strongly recommend you limit this to the IP address ranges of known, trusted servers inside your VPC.
   #allowed_ssh_cidr_blocks = "${var.allowed_ssh_cidr_blocks}"
 
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "kostya"
   storage_account_name = "${var.storage_account_name}"
 
   location = "${var.location}"
@@ -73,7 +73,7 @@ module "servers" {
   resource "azurerm_lb" "example" {
   name                = "TestLoadBalancer"
   location            = "West US"
-  resource_group_name = azurerm_resource_group.example.name
+  resource_group_name = azurerm_resource_group.kostya.name
 
   frontend_ip_configuration {
     name                 = "PublicIPAddress"
@@ -81,14 +81,14 @@ module "servers" {
   }
 }
 resource "azurerm_lb_probe" "nomad_probe" {
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "kostya"
   loadbalancer_id = azurerm_lb.example.id
   name                = "nomad-running-probe"
   port                = "4646"
 }
 
 resource "azurerm_lb_rule" "nomad_api_port" {
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "kostya"
   name = "nomad-api"
   loadbalancer_id = "${element(module.servers.load_balancer_id, 0)}"
   protocol = "Tcp"
